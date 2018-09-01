@@ -1,0 +1,31 @@
+@import "../../../../assets/styles/3rd-party/bootstrap/bootstrap";
+@import "~bootstrap/scss/mixins/grid";
+
+.landingabout {
+  @include make-container();
+  @include make-container-max-widths();
+
+  margin-top: 48px;
+}
+
+.landingabout_body {
+  @include make-row();
+}
+
+.landingabout_title {
+  font-size: 42px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+.landingabout_paragraph {
+  @include make-col-ready();
+  @include make-col(8);
+  @include make-col-offset(2);
+
+  font-size: 18px;
+  line-height: 27px;
+  color: #777;
+  margin-bottom: 24px;
+}

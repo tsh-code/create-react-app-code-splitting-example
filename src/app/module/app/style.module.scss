@@ -1,0 +1,36 @@
+:global {
+  @import "../../../assets/styles/3rd-party/bootstrap/bootstrap";
+  @import "~bootstrap/scss/reboot";
+}
+
+.app {
+  min-height: 100vh;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+$loader-colors: (red, orange, yellow, green, cyan, blue, pink, red);
+
+.app__loaderbar {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, $loader-colors);
+  background-size: 100% * length($loader-colors);
+  animation: rainbow 0.35s * length($loader-colors) linear infinite;
+  animation-fill-mode: both;
+}
+
+.app__loaderbar--visible {
+  top: 0;
+}

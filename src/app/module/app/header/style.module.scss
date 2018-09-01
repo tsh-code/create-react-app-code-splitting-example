@@ -1,0 +1,46 @@
+.appheader {
+  width: 100%;
+  padding: 22px 20px;
+  background: #E4E6EA;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.appheader_title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.appheader_nav {
+  margin-left: auto;
+}
+
+.appheader_menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.appheader_menuitem {
+  display: inline-block;
+  font-size: 15px;
+  background: #2a7fb8;
+  color: #fff;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+.appheader_menulink {
+  display: inline-block;
+  color: currentColor;
+  padding: 9px 12px;
+
+  &:hover {
+    text-decoration: none;
+    color: currentColor;
+  }
+}
