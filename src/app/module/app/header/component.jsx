@@ -36,10 +36,25 @@ class Component extends React.Component {
                 Manager (ML)
               </Link>
             </li>
+            <li className={styles.appheader_menuitem} onMouseOver={this._onMouseOverPreloadingExampleLink}>
+              <Link to='/my-loadable/preloading-example' className={styles.appheader_menulink}>
+                Preloading on hover (ML)
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>
     )
+  }
+
+  _onMouseOverPreloadingExampleLink = () => {
+
+    console.info('Begin loading chunk...');
+
+    import(/* webpackChunkName: "preloading-example" */'../../preloading-example/component').then(() => {
+
+      console.info('Chunk loaded');
+    });
   }
 }
 

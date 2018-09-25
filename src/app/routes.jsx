@@ -52,6 +52,13 @@ export function getRoutes() {
           moduleName='ManagerComponent'
         />
       )} />
+      <Route path='/my-loadable/preloading-example' component={() => (
+        <MyLoadableComponent
+          loader={() => import(/* webpackChunkName: "preloading-example" */'./module/preloading-example/component')}
+          exportName='PreloadingExampleComponent'
+          moduleName='PreloadingExampleComponent'
+        />
+      )} />
     </Switch>
   )
 }
