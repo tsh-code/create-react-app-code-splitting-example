@@ -1,0 +1,4 @@
+export const AppActionTypes = {
+  LOADING_ITEM_ADD: 'app/LOADING_ITEM_ADD',
+  LOADING_ITEM_REMOVE: 'app/LOADING_ITEM_REMOVE',
+};

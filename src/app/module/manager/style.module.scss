@@ -1,0 +1,8 @@
+@import "../../../assets/styles/3rd-party/bootstrap/bootstrap";
+
+.manager {
+  @include make-container();
+  @include make-container-max-widths();
+
+  margin-top: 45px;
+}

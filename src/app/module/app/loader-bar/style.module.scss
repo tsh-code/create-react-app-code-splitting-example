@@ -1,0 +1,28 @@
+$loader-colors: (green, cyan, blue, pink, red, red, orange, yellow);
+
+.apploaderbar {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, $loader-colors);
+  background-size: 100% * length($loader-colors);
+  animation: rainbow 0.35s * length($loader-colors) linear infinite;
+  animation-fill-mode: both;
+  transition: top 1s ease-in;
+}
+
+.apploaderbar--visible {
+  top: 0;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 100%;
+  }
+}

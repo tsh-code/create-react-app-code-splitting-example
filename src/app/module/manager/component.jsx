@@ -1,5 +1,7 @@
 import React from 'react';
 import { map } from 'lodash';
+import { ManagerChartsSectionComponent } from './charts-section/component';
+import styles from './style.module.scss';
 
 const data = [
   {
@@ -25,7 +27,9 @@ export class ManagerComponent extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className={styles.manager}>
+        <ManagerChartsSectionComponent />
+
         {map(data, (item) => <h1>{item.value}</h1>)}
       </div>
     )

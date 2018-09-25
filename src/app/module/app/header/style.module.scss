@@ -1,17 +1,24 @@
+@import "../../../../assets/styles/variables";
+
 .appheader {
   width: 100%;
-  padding: 22px 20px;
-  background: #E4E6EA;
+  padding: 20px 20px;
+  background: $color-base-100;
+  color: $color-base-700;
+  border-bottom: 1px solid $color-base-200;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
+  align-items: center;
 }
 
 .appheader_title {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
   margin: 0;
   padding: 0;
+  color: $color-base-600;
 }
 
 .appheader_nav {
@@ -27,9 +34,10 @@
 
 .appheader_menuitem {
   display: inline-block;
+  font-weight: 400;
   font-size: 15px;
-  background: #2a7fb8;
-  color: #fff;
+  background: transparent;
+  color: $color-base-400;
   border-radius: 4px;
   margin: 0 5px;
 }

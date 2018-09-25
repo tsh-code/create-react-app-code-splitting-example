@@ -1,61 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
-import Loadable from 'react-loadable';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import { AppComponent } from './module/app/component';
+import { createStore } from './redux/create-store';
+import { getRoutes } from './routes';
 
 const appRootElement = document.getElementById('root');
 
-const LoadingComponent = (props) => {
+const history = createBrowserHistory();
 
-  if (props.error || props.timedOut) {
+const store = createStore(undefined, history);
 
-    return <span>Wystąpił błąd podczas ładowania danych</span>
-  } else if (props.pastDelay) {
+const routes = getRoutes();
 
-    return <span>Wczytywanie...</span>
-  }
-
-  return null;
-}
-
-const LandingLoadableComponent = Loadable({
-  loader: () => import(/* webpackChunkName: "landing" */'./module/landing/component'),
-  loading: LoadingComponent,
-  render: ({ LandingComponent }, props) => (
-    <LandingComponent {...props} />
-  ),
-});
-
-const ManagerLoadableComponent = Loadable({
-  loader: () => import(/* webpackChunkName: "manager" */'./module/manager/component'),
-  loading: LoadingComponent,
-  render: ({ ManagerComponent }, props) => (
-    <ManagerComponent {...props} />
-  ),
-});
-
-function getRootComponent() {
+function getRootComponent(children) {
 
   return (
-    <BrowserRouter>
-      <AppComponent>
-        <Switch>
-          <Redirect from='/' exact to='/landing' />
-          <Route path='/landing' component={LandingLoadableComponent} />
-          <Route path='/manager' component={ManagerLoadableComponent} />
-        </Switch>
-      </AppComponent>
-    </BrowserRouter>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <AppComponent>
+          {children}
+        </AppComponent>
+      </ConnectedRouter>
+    </Provider>
   )
 }
 
 ReactDOM.render(
-  getRootComponent(),
+  getRootComponent(routes),
   appRootElement,
 );
